@@ -44,7 +44,7 @@ function clickXO() {
             texto.innerText = "X Ganhou!!";
             return;
           }
-
+          empate();
           return;
         }
         if (classe === "o") {
@@ -56,6 +56,7 @@ function clickXO() {
             texto.innerText = "O Ganhou!!";
             return;
           }
+          empate();
           return;
         }
       }
@@ -81,3 +82,16 @@ function reset() {
   });
 }
 reset();
+
+function empate() {
+  let cont = 0;
+  for (let i of jogo) {
+    if (i.classList.contains("o") || i.classList.contains("x")) {
+      cont += 1;
+    }
+  }
+  if (cont === 9) {
+    containerText.style.display = "flex";
+    texto.innerText = "Empate!!";
+  }
+}
