@@ -5,14 +5,39 @@
 } 
 
 body {
+    display: flex;
+    justify-content: center;
+    align-content: center;
  background: linear-gradient(
      90deg,
      RED 0%,
      gold 100%
  );
 }
+
+header {
+    width: 600px;
+    height: 100px;
+display: flex;
+justify-content: center;
+justify-content: space-around;
+  align-items: center;
+  position: relative;
+  color: black;
+    font-size: 30px;
+}
+
+.containerJogo {
+    margin-top: 10%;
+    width: auto;
+    height: auto;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-content: center;
+}
+
 .board {
-    margin-top: 25%;
     display: grid;
   width: 100%;
   height: 100%;

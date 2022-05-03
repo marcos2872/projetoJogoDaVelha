@@ -3,6 +3,9 @@ const jogo = document.querySelectorAll(".jogo");
 const containerText = document.querySelector(".container-text");
 const texto = document.querySelector(".texto");
 const reiniciar = document.querySelector(".reiniciar");
+const placarX = document.querySelector('.placarX');
+const placarO = document.querySelector('.placarO');
+const placarEmpate = document.querySelector('.empate');
 
 function verificar(arrayJogo) {
   const combinacoes = [
@@ -25,6 +28,10 @@ function verificar(arrayJogo) {
   return false;
 }
 
+let contX = 0;
+let contO = 0;
+let contEmpate = 0;
+
 let x = [];
 let o = [];
 let classe = "x";
@@ -42,6 +49,8 @@ function clickXO() {
           if (verificar(x)) {
             containerText.style.display = "flex";
             texto.innerText = "X Ganhou!!";
+            contX += 1;
+            placar();
             return;
           }
           empate();
@@ -54,6 +63,8 @@ function clickXO() {
           if (verificar(o)) {
             containerText.style.display = "flex";
             texto.innerText = "O Ganhou!!";
+            contO += 1;
+            placar();
             return;
           }
           empate();
@@ -93,5 +104,32 @@ function empate() {
   if (cont === 9) {
     containerText.style.display = "flex";
     texto.innerText = "Empate!!";
+    contEmpate += 1;
+    placar();
   }
 }
+
+
+function placar() {
+  if(contX === 1) {
+    placarX.innerText = `X tem ${contX} vitória`;
+  }
+if(contX > 1) {
+  placarX.innerText = `X tem ${contX} vitórias`;
+}
+
+if(contO === 1) {
+  placarO.innerText = `O tem ${contO} vitória`;
+}
+if(contO > 1) {
+placarO.innerText = `O tem ${contO} vitórias`;
+}
+
+if(contEmpate === 1) {
+  placarEmpate.innerText = `Empate: ${contEmpate} `;
+}
+if(contEmpate > 1) {
+placarEmpate.innerText = `Empates: ${contEmpate} `;
+}
+}
+placar();
